@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package regex_protocol;
+
+message expressions{
+    required string put = 1;
+    required string get = 2;
+};
