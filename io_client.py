@@ -1,7 +1,8 @@
 import socket
+import sys
 
-HOST = '10.0.0.78'
-PORT = 14242
+HOST = ''
+PORT = int(sys.argv[1])
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
@@ -10,16 +11,21 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     msg_to_send = input("Type a msg\n")
     while msg_to_send != 'disconnect':
         s.sendall(bytes(msg_to_send, 'utf-8'))
-        print('I sent my msg~!')
-        msg = s.recv(1024)
+        #print('I sent my msg~!')
+        #msg = s.recv(1024)
 
 
         if msg_to_send == 'close server':
             print("server disconnected.")
             exit(1)
 
-        print(f"I echoed: {msg}")
-        msg_to_send = input("Type a msg\n")
+        #print(f"I echoed: {msg}")
+
+        text = s.recv(1024)
+        print(f"Response: {text}")
+
+        msg_to_send = input(">>Type a msg\n")
+
 
 
     s.sendall(b'disconnect')
