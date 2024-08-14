@@ -3,7 +3,7 @@ from enum import Enum
 import re
 import sys
 
-# define macros
+# define regex
 class reproto(Enum):
     PUT = 'PUT ([\w\.]*) (.*)',
     GET = 'GET ([\w\.]*)',

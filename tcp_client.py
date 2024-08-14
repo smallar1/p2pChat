@@ -8,7 +8,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
 
 
-    msg_to_send = input("Type a msg\n")
+    msg_to_send = input(">>Type a msg\n")
     while msg_to_send != 'disconnect':
         s.sendall(bytes(msg_to_send, 'utf-8'))
         #print('I sent my msg~!')
