@@ -22,7 +22,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         #print(f"I echoed: {msg}")
 
         text = s.recv(1024)
-        print(f"Response: {text}")
+        print(f"Response: {''.join(text.decode('utf-8'))}")
 
         msg_to_send = input(">>Type a msg\n")
 
